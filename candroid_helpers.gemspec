@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = CandroidHelpers::VERSION
   spec.authors       = ["Joshua Escribano", "Charles Wang"]
   spec.email         = ["escribirajoshua@gmail.com", "charles@xamarin.com"]
-  spec.description   = ""
-  spec.summary       = ""
-  spec.homepage      = ""
+  spec.description   = "Adds helper methods to calabash-android."
+  spec.summary       = "candroid_helpers-#{spec.version}"
+  spec.homepage      = "https://github.com/jescriba/candroid_helpers"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
