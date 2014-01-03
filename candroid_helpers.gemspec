@@ -6,8 +6,8 @@ require 'candroid_helpers/version'
 Gem::Specification.new do |spec|
   spec.name          = "candroid_helpers"
   spec.version       = CandroidHelpers::VERSION
-  spec.authors       = ["Joshua Escribano"]
-  spec.email         = ["escribirajoshua@gmail.com"]
+  spec.authors       = ["Joshua Escribano", "Charles Wang"]
+  spec.email         = ["escribirajoshua@gmail.com", "charles@xamarin.com"]
   spec.description   = ""
   spec.summary       = ""
   spec.homepage      = ""
