@@ -3,21 +3,21 @@ require "calabash-android/abase"
 
 module CandroidHelpers
   
-  def until_element_exists element, action, timeout = 30
+  def until_element_exists element, action, timeout = 15
     '''Performs a lambda action until the element appears.'''
-    wait_poll until_exists: element, timeout: 30 do
+    wait_poll until_exists: element, timeout: timeout do
       action.call
     end
   end
 
-  def once_element_exists element, action = lambda { touch element }, timeout = 30
+  def once_element_exists element, action = lambda { touch element }, timeout = 15
     '''Performs a lambda action once the element exists.
     The default behavior is to touch the specified element.'''
-    wait_for_elements_exist [element], timeout: 35
+    wait_for_elements_exist [element], timeout: timeout
     action.call
   end
 
-  def multiple_traits arr = ["*"]
+  def multiple_traits arr = ["*"], timeout = 15
     '''Pass an array of query elements. Determines the
     correct trait for page objects that can have multiple 
     acceptable traits.'''
@@ -31,7 +31,7 @@ module CandroidHelpers
       end
       !trait.empty?
     end
-    wait_poll until: action, timeout: 30 do ; end
+    wait_poll until: action, timeout: timeout do ; end
     trait # Return the one trait
   end
 
