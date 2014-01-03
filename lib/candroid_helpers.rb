@@ -9,7 +9,7 @@ module CandroidHelpers
     raise "No element given." if opts[:element].nil?
     timeout = opts[:timeout] || 10
     action = opts[:action] || lambda { ; }
-    wait_poll until_exists: element, timeout: timeout do
+    wait_poll until_exists: opts[:element], timeout: timeout do
       action.call
     end
   end
@@ -20,7 +20,7 @@ module CandroidHelpers
     raise "No element given." if opts[:element].nil?
     timeout = opts[:timeout] || 10
     action = opts[:action] || lambda { touch element }
-    wait_for_elements_exist [element], timeout: timeout
+    wait_for_elements_exist [opts[:element]], timeout: timeout
     action.call
   end
 
@@ -32,7 +32,7 @@ module CandroidHelpers
     traits = opts[:traits] || ["*"]
     trait = ''
     action = lambda do 
-      arr.each do |element|
+      traits.each do |element|
         if element_exists element
           trait = element
           break
