@@ -19,7 +19,7 @@ module CandroidHelpers
     The default behavior is to touch the specified element.'''
     raise "No element given." if opts[:element].nil?
     timeout = opts[:timeout] || 10
-    action = opts[:action] || lambda { touch element }
+    action = opts[:action] || lambda { touch opts[:element] }
     wait_for_elements_exist [opts[:element]], timeout: timeout
     action.call
   end
