@@ -3,9 +3,9 @@ require "calabash-android/abase"
 
 module CandroidHelpers
   
+    # Performs a lambda action until the element appears.
+    # The default action is to do nothing.
   def until_element_exists opts = {}
-    '''Performs a lambda action until the element appears.
-    The default action is to do nothing.'''
     raise "No element given." if opts[:element].nil?
     timeout = opts[:timeout] || 10
     action = opts[:action] || lambda { ; }
@@ -14,9 +14,9 @@ module CandroidHelpers
     end
   end
 
+    # Performs a lambda action once the element exists.
+    # The default behavior is to touch the specified element.
   def once_element_exists opts = {}
-    '''Performs a lambda action once the element exists.
-    The default behavior is to touch the specified element.'''
     raise "No element given." if opts[:element].nil?
     timeout = opts[:timeout] || 10
     action = opts[:action] || lambda { touch opts[:element] }
@@ -24,10 +24,10 @@ module CandroidHelpers
     action.call
   end
 
+    # Pass an array of query elements. Determines the
+    # correct trait for page objects that can have multiple 
+    # acceptable traits.
   def multiple_traits opts = {}
-    '''Pass an array of query elements. Determines the
-    correct trait for page objects that can have multiple 
-    acceptable traits.'''
     timeout = opts[:timeout] || 10
     traits = opts[:traits] || ["*"]
     trait = ''
