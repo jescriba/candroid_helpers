@@ -44,4 +44,36 @@ module CandroidHelpers
     trait # Return the one trait
   end
 
+    # Takes in a hash with the element key specified. 
+    # Touches the given element if it exists in the 
+    # current view.
+  def touch_if opts = {}
+    raise "No element given." if opts[:element].nil?
+    touch opts[:element] if element_exists opts[:element]
+  end
+
+    # Takes in an array of strings.
+    # Enters in the strings in order of 
+    # the EditText indices.
+  def enter_text_by_index arr = []
+    arr.each_with_index do |string, index|
+      unless query("EditText index:#{index}").empty?
+        query "EditText index:#{index}", setText: string
+      end
+    end
+  end
+
+    # Takes in a hash where the keys
+    # correspond to the ids of the 
+    # text fields and the values correspond
+    # to the strings you want to enter.
+  def enter_text opts = {}
+    opts.each do |key, value|
+      key = key.to_s
+      unless query("EditText id:'#{key}'").empty?
+        query "EditText id:'#{key}'", setText: value
+      end
+    end
+  end
+
 end
