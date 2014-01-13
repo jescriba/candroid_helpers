@@ -1,6 +1,6 @@
 # CandroidHelpers
 
-TODO: Write a gem description
+Provides a few convienent helper methods for Calabash-Android.
 
 ## Installation
 
@@ -18,7 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Documentation can be found at:
+http://rubygems.org/gems/candroid_helpers
 
 ## Contributing
 
